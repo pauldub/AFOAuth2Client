@@ -259,14 +259,17 @@ static NSMutableDictionary * AFKeychainQueryDictionaryWithIdentifier(NSString *i
 - (void)setRefreshToken:(NSString *)refreshToken
              expiration:(NSDate *)expiration
 {
-    NSParameterAssert(expiration);
+  // Paul: Disable parameter assertion, our api doesn't return it :\
+  // NSParameterAssert(expiration);
 
     self.refreshToken = refreshToken;
     self.expiration = expiration;
 }
 
 - (BOOL)isExpired {
-    return [self.expiration compare:[NSDate date]] == NSOrderedAscending;
+  // For now tokens never expires
+  return NO;
+  //return  [self.expiration compare:[NSDate date]] == NSOrderedAscending;
 }
 
 #pragma mark Keychain
