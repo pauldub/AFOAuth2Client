@@ -106,6 +106,7 @@
                               username:(NSString *)username
                               password:(NSString *)password
                                  scope:(NSString *)scope
+																method:(NSString *)method
                                success:(void (^)(AFOAuthCredential *credential))success
                                failure:(void (^)(NSError *error))failure;
 
@@ -160,6 +161,7 @@
  */
 - (void)authenticateUsingOAuthWithPath:(NSString *)path
                             parameters:(NSDictionary *)parameters
+																method:(NSString*)method
                                success:(void (^)(AFOAuthCredential *credential))success
                                failure:(void (^)(NSError *error))failure;
 
